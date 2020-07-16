@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BoardDAO">
+	<select id="selectAll" resultType="Board"> 
+		SELECT * FROM board
+	</select>
+	
+	<select id="selectOne" resultType="Board">
+		SELECT * FROM board WHERE 'no' = no
+	</select>
+	
+	<insert id="insert" parameterType="Board">
+		INSERT INTO board(title, content, name)
+		VALUES (#{title}, #{content}, #{name})
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM board WHERE 'no' = no
+	</delete>
+	
+	<update id="update" parameterType="Board">
+	</update>
+	
+</mapper>

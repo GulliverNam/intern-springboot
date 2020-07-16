@@ -1,20 +1,21 @@
 package com.example.demo.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
-@RestController
+@Controller
 public class MainController {
 	
 	@GetMapping("/")
-	public RedirectView home() {
-		return new RedirectView("/views/index.html");
+	public String home() {
+		return "redirect:index.html";
 	}
 	
 	@GetMapping("/board")
-	public RedirectView board() {
-		return new RedirectView("/views/board/board.jsp");
+	public String board() {
+		return "redirect:board/board.jsp";
 	}
 	
 }
