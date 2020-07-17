@@ -6,7 +6,7 @@
 	</select>
 	
 	<select id="selectOne" resultType="Board">
-		SELECT * FROM board WHERE 'no' = no
+		SELECT * FROM board WHERE id = #{id}
 	</select>
 	
 	<insert id="insert" parameterType="Board">
@@ -15,7 +15,7 @@
 	</insert>
 	
 	<delete id="delete">
-		DELETE FROM board WHERE 'no' = no
+		DELETE FROM board WHERE id = #{id}
 	</delete>
 	
 	<update id="update" parameterType="Board">

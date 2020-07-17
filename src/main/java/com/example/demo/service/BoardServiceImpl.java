@@ -20,8 +20,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public Board search(int no) {
-		return dao.selectOne(no);
+	public Board search(int id) {
+		return dao.selectOne(id);
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void delete(int no) {
-		dao.delete(no);
+	public void delete(int id) {
+		dao.delete(id);
 	}
 
 	@Override
