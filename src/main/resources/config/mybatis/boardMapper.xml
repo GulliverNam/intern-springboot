@@ -19,6 +19,8 @@
 	</delete>
 	
 	<update id="update" parameterType="Board">
+		UPDATE board SET title = #{title}, content = #{content}, name = #{name}
+		WHERE id = #{id}
 	</update>
 	
 </mapper>

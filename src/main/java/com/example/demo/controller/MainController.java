@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -31,13 +32,8 @@ public class MainController {
 	}
 	
 	@GetMapping("/board")
-	public ModelAndView boardList() {
-		ModelAndView mav = new ModelAndView("board");
-		
-		ArrayList<Board> boards = service.searchAll();
-		mav.addObject("boards", boards);
-		
-		return mav;
+	public @ResponseBody ArrayList<Board> boardList() {
+		return service.searchAll();
 	}
 	
 	@GetMapping("/board/new")
@@ -53,13 +49,8 @@ public class MainController {
 	}
 	
 	@GetMapping("/board/{id}")
-	public ModelAndView boardDetail(@PathVariable("id") int id) {
-		ModelAndView mav = new ModelAndView("detail");
-		
-		Board board = service.search(id);
-		mav.addObject("board", board);
-		
-		return mav;
+	public @ResponseBody Board boardDetail(@PathVariable("id") int id) {
+		return service.search(id);
 	}
 	
 	@DeleteMapping("/board/{id}")
@@ -69,9 +60,10 @@ public class MainController {
 	}
 	
 	@PutMapping("/board/{id}")
-	public RedirectView boardUpdate(@RequestBody Board board, @PathVariable("id") int id) {
+	public ResponseEntity<Integer> boardUpdate(@RequestBody Board board, @PathVariable("id") int id) {
+		board.setId(id);
 		service.update(board);
-		return new RedirectView("/demo/board");
+		return new ResponseEntity<>(id, HttpStatus.OK);
 	}
 
 	
