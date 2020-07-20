@@ -54,16 +54,16 @@ public class MainController {
 	}
 	
 	@DeleteMapping("/board/{id}")
-	public ResponseEntity<Integer> boardDelete(@PathVariable("id") int id) {
+	public @ResponseBody boolean boardDelete(@PathVariable("id") int id) {
 		service.delete(id);
-		return new ResponseEntity<>(id, HttpStatus.OK);
+		return true;
 	}
 	
 	@PutMapping("/board/{id}")
-	public ResponseEntity<Integer> boardUpdate(@RequestBody Board board, @PathVariable("id") int id) {
+	public @ResponseBody Board boardUpdate(@RequestBody Board board, @PathVariable("id") int id) {
 		board.setId(id);
 		service.update(board);
-		return new ResponseEntity<>(id, HttpStatus.OK);
+		return service.search(id);
 	}
 
 	
