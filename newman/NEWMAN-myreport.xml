@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="test" tests="4" time="0.116">
+  <testsuite name="demo/board / :id / board_update" id="4cb2f23d-7319-473f-a45f-f6fd399a8e80" timestamp="2020-07-20T13:06:59.068Z" tests="0" failures="0" errors="0" time="0.079"/>
+  <testsuite name="demo/board / :id / board_delete" id="690ca209-a37b-495e-b84f-739fc0d598fa" timestamp="2020-07-20T13:06:59.068Z" tests="0" failures="0" errors="0" time="0.011"/>
+  <testsuite name="demo/board / board_list" id="5f854b28-2acb-4553-93c5-d1d34e6f53ce" timestamp="2020-07-20T13:06:59.068Z" tests="6" failures="0" errors="0" time="0.011">
+    <testcase name="Status code is 200" time="0.011" classname="Test"/>
+    <testcase name="response is valid JSON" time="0.011" classname="Test"/>
+    <testcase name="response json contains id" time="0.011" classname="Test"/>
+    <testcase name="response json contains title" time="0.011" classname="Test"/>
+    <testcase name="response json contains content" time="0.011" classname="Test"/>
+    <testcase name="response json contains name" time="0.011" classname="Test"/>
+  </testsuite>
+  <testsuite name="demo/board / board_create" id="75f97869-699a-448a-a30b-6524f21e6376" timestamp="2020-07-20T13:06:59.068Z" tests="0" failures="0" errors="0" time="0.015"/>
+</testsuites>

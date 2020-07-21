@@ -1,0 +1,161 @@
+﻿{
+	"id": "81783a74-59c6-a10f-e29e-fe6b2e806941",
+	"name": "test",
+	"description": "test",
+	"order": [],
+	"folders": [
+		{
+			"name": ":id",
+			"description": "",
+			"collectionId": "81783a74-59c6-a10f-e29e-fe6b2e806941",
+			"order": [
+				"cc891a9f-0eba-4be2-55bd-d30173c16fe7",
+				"a788db0e-02e0-3f46-84bf-53494f8bc449"
+			],
+			"owner": "5830309",
+			"folder": "2c595a3d-a7c9-68e8-3e40-a2bc2620d62c",
+			"folders_order": [],
+			"id": "b7c6c70b-c026-1bee-1f04-67cc923455fc"
+		},
+		{
+			"name": "demo/board",
+			"description": "",
+			"collectionId": "81783a74-59c6-a10f-e29e-fe6b2e806941",
+			"order": [
+				"2aacc080-97e7-4a4d-9751-53805b4484b6",
+				"e727ac78-eaba-7e8e-9dfc-40389dadd895"
+			],
+			"owner": "5830309",
+			"folders_order": [
+				"b7c6c70b-c026-1bee-1f04-67cc923455fc"
+			],
+			"id": "2c595a3d-a7c9-68e8-3e40-a2bc2620d62c"
+		}
+	],
+	"folders_order": [
+		"2c595a3d-a7c9-68e8-3e40-a2bc2620d62c"
+	],
+	"timestamp": 1594972506793,
+	"owner": "5830309",
+	"public": false,
+	"requests": [
+		{
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:8080/demo/board",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar responseJSONs;\ntry{\n    responseJSONs = JSON.parse(responseBody);\n    tests['response is valid JSON'] = true;\n} catch(e){\n    responseJSONs ={};\n    tests['response is valid JSON'] = false;\n}\n\nresponseJSONs.forEach(function(element){\n    tests['response json contains id'] = _.has(element, 'id');\n    tests['response json contains title'] = _.has(element, 'title');\n    tests['response json contains content'] = _.has(element, 'content');\n    tests['response json contains name'] = _.has(element, 'name');\n});\n\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1595230370675,
+			"name": "board_list",
+			"description": "",
+			"collectionId": "81783a74-59c6-a10f-e29e-fe6b2e806941",
+			"responses": []
+		},
+		{
+			"id": "a788db0e-02e0-3f46-84bf-53494f8bc449",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:8080/demo/board/:id",
+			"folder": "b7c6c70b-c026-1bee-1f04-67cc923455fc",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {
+				"id": "5"
+			},
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "5"
+				}
+			],
+			"method": "DELETE",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1595230377580,
+			"name": "board_delete",
+			"description": "",
+			"collectionId": "81783a74-59c6-a10f-e29e-fe6b2e806941",
+			"responses": []
+		},
+		{
+			"id": "cc891a9f-0eba-4be2-55bd-d30173c16fe7",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/demo/board/:id",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {
+				"id": "1"
+			},
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "1"
+				}
+			],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1595230378053,
+			"name": "board_update",
+			"description": "",
+			"collectionId": "81783a74-59c6-a10f-e29e-fe6b2e806941",
+			"responses": [],
+			"rawModeData": "{\n\t\"title\": \"update 테스트\",\n\t\"content\": \"update 테스트입니!!!!!!!!!!\",\n\t\"name\": \"남기1\"\n}"
+		},
+		{
+			"id": "e727ac78-eaba-7e8e-9dfc-40389dadd895",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/demo/board",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1595230377021,
+			"name": "board_create",
+			"description": "create",
+			"collectionId": "81783a74-59c6-a10f-e29e-fe6b2e806941",
+			"responses": [],
+			"rawModeData": "{\n\t\"title\": \"postman 테스트\",\n\t\"content\": \"pm 테스트입니다.\",\n\t\"name\": \"남기남기\"\n}"
+		}
+	]
+}
